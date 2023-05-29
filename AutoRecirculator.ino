@@ -5,19 +5,15 @@ Recirculator MainRecirculator(6);
 Door EntranceDoor(2, 3, []() -> void {
   MainRecirculator.currentPeopleCount++;
   MainRecirculator.update();
-  Serial.print("+");
 });
 Door ExitDoor(4, 5, []() -> void {
   MainRecirculator.currentPeopleCount--;
   MainRecirculator.update();
-  Serial.print("-");
 });
 
 void setup() {
   EntranceDoor.init();
   ExitDoor.init();
-
-  Serial.begin(9600);
 }
 
 void loop() {
